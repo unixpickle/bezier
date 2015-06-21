@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Beziers</title>
+    <script src="bezier.js"></script>
+    <script src="draw.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body onresize="resized()" onload="loaded()" onmousedown="mouseDown()" onmouseup="mouseUp()"
+        onmousemove="mouseMove()">
+    <div id="controls" onmousedown="event.preventDefault(); event.stopPropagation()">
+      <button onclick="addPoint()">+ Point</button>
+      <button onclick="removePoint()">- Point</button>
+    </div>
+    <canvas id="canvas"></canvas>
+  </body>
+</html>
