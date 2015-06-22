@@ -9,6 +9,14 @@
     return Math.sqrt(Math.pow(p.x-this.x, 2) + Math.pow(p.y-this.y, 2));
   };
 
+  Point.prototype.subtract = function(p) {
+    return new Point(this.x-p.x, this.y-p.y);
+  };
+  
+  Point.prototype.add = function(p) {
+    return new Point(this.x+p.x, this.y+p.y);
+  };
+
   function pointBetween(p1, p2, t) {
     return new Point(p1.x*(1-t)+p2.x*t, p1.y*(1-t)+p2.y*t);
   }

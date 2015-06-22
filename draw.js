@@ -95,3 +95,29 @@ function removePoint() {
     draw();
   }
 }
+
+function rotate() {
+  var center = shapeCenter();
+  console.log('center', center);
+  for (var i = 0, len = points.length; i < len; ++i) {
+    var p = points[i].subtract(center);
+    var newX = -p.y;
+    var newY = p.x;
+    console.log(p, 'newX, newY', newX, newY, center);
+    points[i] = new window.bezierjs.Point(newX, newY).add(center);
+  }
+  draw();
+}
+
+function shapeCenter() {
+  var minX = window.innerWidth, minY = window.innerHeight;
+  var maxX = 0, maxY = 0;
+  for (var i = 0, len = points.length; i < len; ++i) {
+    var point = points[i];
+    minX = Math.min(point.x, minX);
+    minY = Math.min(point.y, minY);
+    maxX = Math.max(point.x, maxX);
+    maxY = Math.max(point.y, maxY);
+  }
+  return new window.bezierjs.Point((minX+maxX)/2, (minY+maxY)/2);
+}
