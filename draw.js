@@ -98,12 +98,10 @@ function removePoint() {
 
 function rotate() {
   var center = shapeCenter();
-  console.log('center', center);
   for (var i = 0, len = points.length; i < len; ++i) {
     var p = points[i].subtract(center);
     var newX = -p.y;
     var newY = p.x;
-    console.log(p, 'newX, newY', newX, newY, center);
     points[i] = new window.bezierjs.Point(newX, newY).add(center);
   }
   draw();
